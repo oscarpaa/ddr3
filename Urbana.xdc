@@ -1,7 +1,7 @@
 # URBANA BOARD CONSTRAINTS V2I1 1/3/2023 
 # clk input is from the 100 MHz oscillator on Urbana board
-create_clock -period 10.000 -name gclk [get_ports clk_100MHz]
-set_property -dict {PACKAGE_PIN N15 IOSTANDARD LVCMOS33} [get_ports {CLK_100MHZ}]
+create_clock -period 10.000 -name gclk [get_ports clk_100mhz]
+set_property -dict {PACKAGE_PIN N15 IOSTANDARD LVCMOS33} [get_ports {clk_100mhz}]
 
 # Set Bank 0 voltage
 set_property CFGBVS VCCO [current_design]
@@ -27,7 +27,7 @@ set_property -dict {PACKAGE_PIN B7 IOSTANDARD LVCMOS25} [get_ports {SW[14]}]
 set_property -dict {PACKAGE_PIN A8 IOSTANDARD LVCMOS25} [get_ports {SW[15]}]
 
 # On-board LEDs
-set_property -dict {PACKAGE_PIN C13 IOSTANDARD LVCMOS33} [get_ports {LED[0]}]
+set_property -dict {PACKAGE_PIN C13 IOSTANDARD LVCMOS33} [get_ports {init_calib_complete}]; # LED[0]
 set_property -dict {PACKAGE_PIN C14 IOSTANDARD LVCMOS33} [get_ports {LED[1]}]
 set_property -dict {PACKAGE_PIN D14 IOSTANDARD LVCMOS33} [get_ports {LED[2]}]
 set_property -dict {PACKAGE_PIN D15 IOSTANDARD LVCMOS33} [get_ports {LED[3]}]
@@ -59,10 +59,10 @@ set_property -dict {PACKAGE_PIN C10 IOSTANDARD LVCMOS33} [get_ports {RGB1[1]}]; 
 set_property -dict {PACKAGE_PIN B11 IOSTANDARD LVCMOS33} [get_ports {RGB1[2]}];   # RBG1_B
 
 # On-board 7-Segment display 0
-set_property -dict {PACKAGE_PIN G6 IOSTANDARD LVCMOS25} [get_ports {D0_AN[0]}]  # Active LOW
-set_property -dict {PACKAGE_PIN H6 IOSTANDARD LVCMOS25} [get_ports {D0_AN[1]}]  # Active LOW
-set_property -dict {PACKAGE_PIN C3 IOSTANDARD LVCMOS25} [get_ports {D0_AN[2]}]  # Active LOW
-set_property -dict {PACKAGE_PIN B3 IOSTANDARD LVCMOS25} [get_ports {D0_AN[3]}]  # Active LOW
+set_property -dict {PACKAGE_PIN G6 IOSTANDARD LVCMOS25} [get_ports {D0_AN[0]}];  # Active LOW
+set_property -dict {PACKAGE_PIN H6 IOSTANDARD LVCMOS25} [get_ports {D0_AN[1]}];  # Active LOW
+set_property -dict {PACKAGE_PIN C3 IOSTANDARD LVCMOS25} [get_ports {D0_AN[2]}];  # Active LOW
+set_property -dict {PACKAGE_PIN B3 IOSTANDARD LVCMOS25} [get_ports {D0_AN[3]}];  # Active LOW
 set_property -dict {PACKAGE_PIN E6 IOSTANDARD LVCMOS25} [get_ports {D0_SEG[0]}];  # CA Active LOW
 set_property -dict {PACKAGE_PIN B4 IOSTANDARD LVCMOS25} [get_ports {D0_SEG[1]}];  # CB Active LOW
 set_property -dict {PACKAGE_PIN D5 IOSTANDARD LVCMOS25} [get_ports {D0_SEG[2]}];  # CC Active LOW
@@ -73,10 +73,10 @@ set_property -dict {PACKAGE_PIN C4 IOSTANDARD LVCMOS25} [get_ports {D0_SEG[6]}];
 set_property -dict {PACKAGE_PIN B5 IOSTANDARD LVCMOS25} [get_ports {D0_SEG[7]}];  # CDP Active LOW
 
 # On-board 7-Segment display 1
-set_property -dict {PACKAGE_PIN E4 IOSTANDARD LVCMOS25} [get_ports {D1_AN[0]}]  # Active LOW
-set_property -dict {PACKAGE_PIN E3 IOSTANDARD LVCMOS25} [get_ports {D1_AN[1]}]  # Active LOW
-set_property -dict {PACKAGE_PIN F5 IOSTANDARD LVCMOS25} [get_ports {D1_AN[2]}]  # Active LOW
-set_property -dict {PACKAGE_PIN H5 IOSTANDARD LVCMOS25} [get_ports {D1_AN[3]}]  # Active LOW
+set_property -dict {PACKAGE_PIN E4 IOSTANDARD LVCMOS25} [get_ports {D1_AN[0]}];  # Active LOW
+set_property -dict {PACKAGE_PIN E3 IOSTANDARD LVCMOS25} [get_ports {D1_AN[1]}];  # Active LOW
+set_property -dict {PACKAGE_PIN F5 IOSTANDARD LVCMOS25} [get_ports {D1_AN[2]}];  # Active LOW
+set_property -dict {PACKAGE_PIN H5 IOSTANDARD LVCMOS25} [get_ports {D1_AN[3]}];  # Active LOW
 set_property -dict {PACKAGE_PIN F3 IOSTANDARD LVCMOS25} [get_ports {D1_SEG[0]}];  # CA Active LOW
 set_property -dict {PACKAGE_PIN G5 IOSTANDARD LVCMOS25} [get_ports {D1_SEG[1]}];  # CB Active LOW
 set_property -dict {PACKAGE_PIN J3 IOSTANDARD LVCMOS25} [get_ports {D1_SEG[2]}];  # CC Active LOW
@@ -137,8 +137,8 @@ set_property -dict {PACKAGE_PIN G15 IOSTANDARD LVCMOS33} [get_ports {BLE_UART_TX
 set_property -dict {PACKAGE_PIN E13 IOSTANDARD LVCMOS33} [get_ports {BLE_UART_RXD}]
 set_property -dict {PACKAGE_PIN H15 IOSTANDARD LVCMOS33} [get_ports {BLE_UART_RTS}]
 set_property -dict {PACKAGE_PIN F13 IOSTANDARD LVCMOS33} [get_ports {BLE_UART_CTS}]
-set_property -dict {PACKAGE_PIN B16 IOSTANDARD LVCMOS33} [get_ports {UART_TXD}]
-set_property -dict {PACKAGE_PIN A16 IOSTANDARD LVCMOS33} [get_ports {UART_RXD}]
+set_property -dict {PACKAGE_PIN B16 IOSTANDARD LVCMOS33} [get_ports {uart_txd}]
+set_property -dict {PACKAGE_PIN A16 IOSTANDARD LVCMOS33} [get_ports {uart_rxd}]
 
 #QSPI signals
 set_property -dict {PACKAGE_PIN K17 IOSTANDARD LVCMOS33} [get_ports {QSPI_DQ0}]
@@ -460,7 +460,7 @@ set_property PACKAGE_PIN R5 [get_ports {ddr3_ck_p[0]}]
 set_property PACKAGE_PIN T4 [get_ports {ddr3_ck_n[0]}]
 
 set_property INTERNAL_VREF 0.675 [get_iobanks 34]
-set_property CFGBS VCCO
+set_property CFGBVS VCCO [current_design]
 
 set_property BITSTREAM.CONFIG.UNUSEDPIN PULLUP [current_design]
 set_property BITSTREAM.GENERAL.COMPRESS TRUE [current_design]
